@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Successful | Voice & Anchoring Webinar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="status-page status-page--success">
+    <div class="status-card status-card--success">
+      <div class="status-icon">✅</div>
+      <h1 class="status-title">Payment Successful!</h1>
+      <p class="status-text">
+        Thank you for registering for the <strong class="gold">Voice & Anchoring Mastery Webinar</strong>.
+        Your seat is confirmed for ₹299.
+      </p>
+      <div class="status-note status-note--gold">
+        <strong>What happens next?</strong><br>
+        You will receive a confirmation email and WhatsApp message with the Zoom link before the webinar starts.
+        Please check your inbox and spam folder.
+      </div>
+      <p id="payment-status-note" class="status-text">Updating your payment status...</p>
+      <div id="confirm-payment-fallback" class="confirm-payment-fallback" style="display:none;">
+        <p class="status-text">Enter the same email and mobile you used to register:</p>
+        <form id="confirm-payment-form">
+          <div class="form-group">
+            <input class="form-input" type="email" id="confirm-email" placeholder="Email address" required>
+          </div>
+          <div class="form-group">
+            <input class="form-input" type="tel" id="confirm-mobile" placeholder="10-digit mobile" required>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;">Confirm Payment Status</button>
+        </form>
+      </div>
+      <div class="status-actions">
+        <a href="index.html" class="btn-primary btn-lg">
+          <span>← Back to Home</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="js/config.js"></script>
+  <script src="js/payment-flow.js"></script>
+  <script src="js/thank-you.js"></script>
+</body>
+</html>
