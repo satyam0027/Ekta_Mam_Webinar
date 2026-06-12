@@ -6,7 +6,7 @@ const RAZORPAY_PAYMENT_LINK = 'https://rzp.io/rzp/bQc4MF5';
 
 // Also set THANK_YOU_PAGE inside Razorpay Payment Link → Redirect after payment
 const SITE_BASE_URL = 'http://127.0.0.1:5500';
-const THANK_YOU_PAGE = `http://127.0.0.1:5500/thank-you.html`;
-const CANCEL_PAGE = `http://127.0.0.1:5500/cancel.html`;
+const THANK_YOU_PAGE = `https://ekta-mam-webinar.vercel.app/thank-you.html`;
+const CANCEL_PAGE = `https://ekta-mam-webinar.vercel.app/cancel.html`;
 
 const REGISTRATION_STORAGE_KEY = 'webinar_registration';
