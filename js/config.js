@@ -5,7 +5,7 @@ const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyJSisZRDn7Mv
 const RAZORPAY_PAYMENT_LINK = 'https://rzp.io/rzp/bQc4MF5';
 
 // Also set THANK_YOU_PAGE inside Razorpay Payment Link → Redirect after payment
-const SITE_BASE_URL = 'http://127.0.0.1:5500';
+const SITE_BASE_URL = 'https://ekta-mam-webinar.vercel.app/';
 const THANK_YOU_PAGE = `https://ekta-mam-webinar.vercel.app/thank-you.html`;
 const CANCEL_PAGE = `https://ekta-mam-webinar.vercel.app/cancel.html`;
 
