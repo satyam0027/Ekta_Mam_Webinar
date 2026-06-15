@@ -5,7 +5,7 @@ const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyJSisZRDn7Mv
 const RAZORPAY_PAYMENT_LINK = 'https://rzp.io/rzp/bQc4MF5';
 
 // Site paths — update SITE_BASE_URL to your live domain
-const SITE_BASE_URL = 'https://ekta-mam-webinar.vercel.app';
+const SITE_BASE_URL = 'https://ektamishra.com';
 const WEBINAR_SLUG = '/voice-mastery-webinar';
 
 // Set THANK_YOU_PAGE in Razorpay Payment Link → Redirect after payment
