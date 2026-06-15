@@ -20,9 +20,17 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 const header = document.getElementById('site-header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 60);
-});
+if (header) {
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+      ticking = false;
+    });
+  }, { passive: true });
+}
 
 const reveals = document.querySelectorAll('.reveal');
 const revealObs = new IntersectionObserver((entries) => {
