@@ -4,9 +4,12 @@ const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyJSisZRDn7Mv
 // Razorpay Payment Link — create in Dashboard → Payment Links → Amount ₹299
 const RAZORPAY_PAYMENT_LINK = 'https://rzp.io/rzp/bQc4MF5';
 
-// Also set THANK_YOU_PAGE inside Razorpay Payment Link → Redirect after payment
-const SITE_BASE_URL = 'https://ekta-mam-webinar.vercel.app/';
-const THANK_YOU_PAGE = `https://ekta-mam-webinar.vercel.app/thank-you.html`;
-const CANCEL_PAGE = `https://ekta-mam-webinar.vercel.app/cancel.html`;
+// Site paths — update SITE_BASE_URL to your live domain
+const SITE_BASE_URL = 'https://ekta-mam-webinar.vercel.app';
+const WEBINAR_SLUG = '/voice-mastery-webinar';
+
+// Set THANK_YOU_PAGE in Razorpay Payment Link → Redirect after payment
+const THANK_YOU_PAGE = `${SITE_BASE_URL}${WEBINAR_SLUG}/thank-you.html`;
+const CANCEL_PAGE = `${SITE_BASE_URL}${WEBINAR_SLUG}/cancel.html`;
 
 const REGISTRATION_STORAGE_KEY = 'webinar_registration';

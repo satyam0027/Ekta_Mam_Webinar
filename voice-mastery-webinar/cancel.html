@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div class="status-page status-page--cancel">
@@ -27,14 +27,14 @@
           <span>Try Payment Again</span>
         </a>
         <a href="index.html" class="btn-ghost">
-          <span>← Back to Home</span>
+          <span>← Back to Webinar</span>
         </a>
       </div>
     </div>
   </div>
-  <script src="js/config.js"></script>
-  <script src="js/payment-flow.js"></script>
-  <script src="js/cancel.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/payment-flow.js"></script>
+  <script src="/js/cancel.js"></script>
   <script>
     const pageStatus = new URLSearchParams(window.location.search).get('status');
     const msg = document.getElementById('cancel-message');
