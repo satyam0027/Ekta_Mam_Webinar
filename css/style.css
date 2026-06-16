@@ -1193,10 +1193,14 @@
   .footer-bottom {
     border-top: 1px solid var(--border-2);
     padding-top: 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    flex-wrap: wrap; gap: 12px;
-    font-size: 0.8rem; color: var(--text-muted);
-  }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
 
   /* ═══════════════════════════════════════════════════════════════════════
      HERO TRUST BAR — SARVESH PLACEMENT #1
