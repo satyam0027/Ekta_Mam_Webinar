@@ -765,11 +765,24 @@
     min-width: min(100%, 200px);
     flex: 1 1 200px;
     max-width: 100%;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
   }
   .voice-pill:hover, .voice-pill.active {
     border-color: var(--gold);
     background: rgba(212,168,67,0.08);
     box-shadow: 0 0 20px rgba(212,168,67,0.1);
+  }
+  .voice-pill.playing .waveform span {
+    background: var(--gold);
+    opacity: 1;
+    animation-play-state: running;
+  }
+  .voice-pill:not(.playing) .waveform span {
+    animation-play-state: paused;
   }
   .voice-play {
     width: 36px; height: 36px;

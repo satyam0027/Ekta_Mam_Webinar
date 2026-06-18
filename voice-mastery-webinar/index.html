@@ -552,61 +552,62 @@
   <div class="container">
     <div class="text-center reveal">
       <div class="section-label">Live Demonstration</div>
-      <h2 class="section-title">5 Voice Styles –<br>Performed LIVE</h2>
-      <p class="section-sub">Ekta will perform each of these voice styles live during the webinar — and explain the technique, tone, and commercial application of each.</p>
+      <h2 class="section-title">5 Voice Styles –<br>Listen & Experience</h2>
+      <p class="section-sub">Tap any sample below to hear Ekta's voice in action — advertisement, luxury brand, corporate narration, podcast, and event anchoring.</p>
     </div>
     <div class="demo-voices">
-      <div class="voice-pill active reveal reveal-delay-1">
-        <div class="voice-play">▶</div>
+      <button type="button" class="voice-pill active" data-audio="/audio/advertisement-voice.mp3" aria-label="Play Advertisement Voice sample">
+        <div class="voice-play" aria-hidden="true">▶</div>
         <div>
           <div class="voice-name">Advertisement Voice</div>
           <div class="voice-type">High Energy · Persuasive</div>
         </div>
-        <div class="waveform">
+        <div class="waveform" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-      </div>
-      <div class="voice-pill reveal reveal-delay-2">
-        <div class="voice-play">▶</div>
+      </button>
+      <button type="button" class="voice-pill" data-audio="/audio/luxury-brand-voice.mp3" aria-label="Play Luxury Brand Voice sample">
+        <div class="voice-play" aria-hidden="true">▶</div>
         <div>
           <div class="voice-name">Luxury Brand Voice</div>
           <div class="voice-type">Smooth · Aspirational</div>
         </div>
-        <div class="waveform">
+        <div class="waveform" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-      </div>
-      <div class="voice-pill reveal reveal-delay-3">
-        <div class="voice-play">▶</div>
+      </button>
+      <button type="button" class="voice-pill" data-audio="/audio/corporate-narration.mp3" aria-label="Play Corporate Narration sample">
+        <div class="voice-play" aria-hidden="true">▶</div>
         <div>
           <div class="voice-name">Corporate Narration</div>
           <div class="voice-type">Clear · Professional</div>
         </div>
-        <div class="waveform">
+        <div class="waveform" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-      </div>
-      <div class="voice-pill reveal reveal-delay-1">
-        <div class="voice-play">▶</div>
+      </button>
+      <button type="button" class="voice-pill" data-audio="/audio/podcast-voice.mp3" aria-label="Play Podcast Voice sample">
+        <div class="voice-play" aria-hidden="true">▶</div>
         <div>
           <div class="voice-name">Podcast Voice</div>
           <div class="voice-type">Warm · Conversational</div>
         </div>
-        <div class="waveform">
+        <div class="waveform" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-      </div>
-      <div class="voice-pill reveal reveal-delay-2">
-        <div class="voice-play">▶</div>
+      </button>
+      <button type="button" class="voice-pill" data-audio="/audio/event-anchor-voice.mp3" aria-label="Play Event Anchor Voice sample">
+        <div class="voice-play" aria-hidden="true">▶</div>
         <div>
           <div class="voice-name">Event Anchor Voice</div>
           <div class="voice-type">Dynamic · Energetic</div>
         </div>
-        <div class="waveform">
+        <div class="waveform" aria-hidden="true">
           <span></span><span></span><span></span><span></span><span></span>
         </div>
-      </div>
+      </button>
     </div>
+    <audio id="voice-demo-player" preload="none"></audio>
   </div>
 </section>
 

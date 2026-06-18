@@ -60,12 +60,57 @@ document.querySelectorAll('.faq-q').forEach(q => {
   });
 });
 
+const voicePlayer = document.getElementById('voice-demo-player');
+let activeVoicePill = null;
+
+function resetVoicePill(pill) {
+  pill.classList.remove('active', 'playing');
+  const playBtn = pill.querySelector('.voice-play');
+  if (playBtn) playBtn.textContent = '▶';
+}
+
+function setVoicePillPlaying(pill) {
+  document.querySelectorAll('.voice-pill').forEach(resetVoicePill);
+  pill.classList.add('active', 'playing');
+  const playBtn = pill.querySelector('.voice-play');
+  if (playBtn) playBtn.textContent = '❚❚';
+  activeVoicePill = pill;
+}
+
 document.querySelectorAll('.voice-pill').forEach(pill => {
   pill.addEventListener('click', () => {
-    document.querySelectorAll('.voice-pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
+    const src = pill.dataset.audio;
+    if (!src || !voicePlayer) return;
+
+    const isSameTrack = voicePlayer.src.includes(src);
+    const isPlaying = isSameTrack && !voicePlayer.paused;
+
+    if (isPlaying) {
+      voicePlayer.pause();
+      resetVoicePill(pill);
+      activeVoicePill = null;
+      return;
+    }
+
+    if (!isSameTrack) {
+      voicePlayer.src = src;
+      voicePlayer.load();
+    }
+
+    setVoicePillPlaying(pill);
+    voicePlayer.play().catch(() => {
+      resetVoicePill(pill);
+      activeVoicePill = null;
+    });
   });
 });
+
+if (voicePlayer) {
+  voicePlayer.addEventListener('ended', () => {
+    if (activeVoicePill) resetVoicePill(activeVoicePill);
+    activeVoicePill = null;
+  });
+}
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', e => {
