@@ -219,7 +219,7 @@
     background: linear-gradient(135deg, var(--gold), var(--gold-dim));
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
+    color: var(--ink);
   }
   .logo-text {
     font-family: var(--font-display);
@@ -406,6 +406,10 @@
     backdrop-filter: blur(10px);
   }
   .countdown-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     font-family: var(--font-mono);
     font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--gold); margin-bottom: 12px;
@@ -548,13 +552,150 @@
   .benefit-card:hover { border-color: var(--border); transform: translateY(-4px); box-shadow: var(--glow); }
   .benefit-card:hover::before { opacity: 1; }
   .benefit-icon {
-    width: 52px; height: 52px;
-    background: rgba(212,168,67,0.08);
+    width: 56px; height: 56px;
+    background: linear-gradient(145deg, rgba(212,168,67,0.14), rgba(212,168,67,0.04));
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem;
     margin-bottom: 20px;
+    color: var(--gold);
+    position: relative;
+    overflow: visible;
+    animation: benefit-icon-float 4s ease-in-out infinite;
+    box-shadow: 0 0 0 rgba(212,168,67,0);
+    transition: box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease;
+  }
+  .benefit-card:hover .benefit-icon {
+    border-color: rgba(212,168,67,0.45);
+    box-shadow: 0 0 24px rgba(212,168,67,0.18);
+    transform: translateY(-2px);
+    animation-play-state: paused;
+  }
+  .benefit-svg {
+    width: 28px;
+    height: 28px;
+    overflow: visible;
+  }
+  .benefit-icon--mic .benefit-svg { width: 32px; }
+
+  @keyframes benefit-icon-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  .benefit-icon .icon-draw {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+  }
+  .benefit-card.reveal.visible .icon-draw {
+    animation: icon-draw-in 1.2s ease forwards;
+  }
+
+  @keyframes icon-draw-in {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .benefit-icon--secrets .icon-pulse {
+    animation: icon-blink 2s ease-in-out infinite;
+  }
+  @keyframes icon-blink {
+    0%, 100% { opacity: 0.35; }
+    50% { opacity: 1; }
+  }
+
+  .benefit-icon--income .icon-rise {
+    stroke-dasharray: 28;
+    stroke-dashoffset: 28;
+  }
+  .benefit-card.reveal.visible .benefit-icon--income .icon-rise {
+    animation: icon-draw-in 1.4s ease 0.25s forwards, icon-rise-shift 2.5s ease-in-out 1.6s infinite;
+  }
+  @keyframes icon-rise-shift {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-1px); opacity: 0.85; }
+  }
+
+  .benefit-icon--target .target-ring-1 {
+    transform-origin: center;
+    animation: target-pulse 2.4s ease-out infinite;
+  }
+  .benefit-icon--target .target-ring-2 {
+    transform-origin: center;
+    animation: target-pulse 2.4s ease-out 0.4s infinite;
+  }
+  .benefit-icon--target .target-dot {
+    animation: target-dot-glow 2s ease-in-out infinite;
+  }
+  @keyframes target-pulse {
+    0% { transform: scale(1); opacity: 0.9; }
+    70% { transform: scale(1.08); opacity: 0.45; }
+    100% { transform: scale(1); opacity: 0.9; }
+  }
+  @keyframes target-dot-glow {
+    0%, 100% { filter: drop-shadow(0 0 0 rgba(212,168,67,0)); }
+    50% { filter: drop-shadow(0 0 4px rgba(240,201,106,0.8)); }
+  }
+
+  .benefit-icon--brand .icon-orbit {
+    stroke-dasharray: 63;
+    stroke-dashoffset: 63;
+    opacity: 0.35;
+    transform-origin: center;
+  }
+  .benefit-card.reveal.visible .benefit-icon--brand .icon-orbit {
+    animation: icon-orbit-spin 8s linear infinite;
+  }
+  @keyframes icon-orbit-spin {
+    to { stroke-dashoffset: 0; transform: rotate(360deg); }
+  }
+
+  .benefit-icon--mic .wave-bar {
+    stroke-width: 2;
+    animation: mic-wave 1.1s ease-in-out infinite;
+  }
+  .benefit-icon--mic .wave-bar-1 { animation-delay: 0s; }
+  .benefit-icon--mic .wave-bar-2 { animation-delay: 0.15s; }
+  .benefit-icon--mic .wave-bar-3 { animation-delay: 0.3s; }
+  @keyframes mic-wave {
+    0%, 100% { transform: scaleY(0.45); opacity: 0.45; }
+    50% { transform: scaleY(1); opacity: 1; }
+  }
+
+  .benefit-icon--gift .gift-bow-left,
+  .benefit-icon--gift .gift-bow-right {
+    transform-origin: 12px 8px;
+    animation: gift-bow-sway 2.8s ease-in-out infinite;
+  }
+  .benefit-icon--gift .gift-bow-right { animation-delay: 0.4s; }
+  .benefit-icon--gift .gift-lid {
+    transform-origin: center bottom;
+    animation: gift-lid-bob 3s ease-in-out infinite;
+  }
+  @keyframes gift-bow-sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(-4deg); }
+  }
+  @keyframes gift-lid-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-1px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .benefit-icon,
+    .benefit-icon .icon-draw,
+    .benefit-icon--secrets .icon-pulse,
+    .benefit-icon--income .icon-rise,
+    .benefit-icon--target .target-ring-1,
+    .benefit-icon--target .target-ring-2,
+    .benefit-icon--target .target-dot,
+    .benefit-icon--brand .icon-orbit,
+    .benefit-icon--mic .wave-bar,
+    .benefit-icon--gift .gift-bow-left,
+    .benefit-icon--gift .gift-bow-right,
+    .benefit-icon--gift .gift-lid {
+      animation: none !important;
+      stroke-dashoffset: 0;
+    }
   }
   .benefit-title {
     font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
@@ -626,6 +767,9 @@
   .stat-lbl { font-size: 0.72rem; color: var(--text-muted); font-family: var(--font-mono); letter-spacing: 0.08em; }
   .mentor-creds { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0 32px; }
   .cred-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     background: rgba(255,255,255,0.04);
     border: 1px solid var(--border-2);
     border-radius: 6px;
@@ -633,6 +777,7 @@
     font-size: 0.82rem; color: var(--text-body);
   }
   .cred-tag span { color: var(--gold); margin-right: 6px; }
+  .cred-tag .ui-icon { margin-right: 6px; vertical-align: -2px; }
   .mentor-quote {
     background: rgba(212,168,67,0.05);
     border-left: 3px solid var(--gold);
@@ -673,6 +818,7 @@
   .income-card:hover { border-color: var(--border); box-shadow: var(--glow); }
   .income-card:hover::after { transform: scaleX(1); }
   .income-card-icon { font-size: 2.4rem; margin-bottom: 16px; }
+  .card-icon { margin-bottom: 16px; }
   .income-card-type {
     font-family: var(--font-mono); font-size: 0.7rem;
     letter-spacing: 0.15em; text-transform: uppercase;
@@ -1011,6 +1157,7 @@
   .register-title {
     font-family: var(--font-display); font-size: 2rem; font-weight: 900;
     color: var(--cream); text-align: center; margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
   }
   .register-sub { text-align: center; color: var(--text-body); font-size: 0.93rem; margin-bottom: 32px; }
   .form-group { margin-bottom: 20px; }
@@ -1109,7 +1256,9 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
   .upsell-tag {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: var(--red-accent); color: white;
     font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em;
     padding: 6px 18px; border-radius: 100px; text-transform: uppercase;
@@ -1165,10 +1314,15 @@
     position: relative;
   }
   #final-cta::before {
-    content: '🎙️';
-    position: absolute; font-size: 30rem; opacity: 0.02;
-    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    opacity: 0.035;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
     pointer-events: none;
+    background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A843' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='2' width='6' height='11' rx='3'/%3E%3Cpath d='M5 10a7 7 0 0 0 14 0'/%3E%3Cpath d='M12 18v4'/%3E%3Cpath d='M8 22h8'/%3E%3C/svg%3E");
   }
   .final-title {
     font-family: var(--font-display); font-size: clamp(2.2rem, 5.5vw, 4rem); font-weight: 900;
@@ -1273,14 +1427,14 @@
     overflow: hidden;
   }
   #endorsement::before {
-    content: '❝';
+    content: '';
     position: absolute; top: -20px; left: 50%;
     transform: translateX(-50%);
-    font-size: 20rem; opacity: 0.018;
-    color: var(--gold);
-    font-family: var(--font-display);
+    width: 320px;
+    height: 320px;
+    opacity: 0.04;
     pointer-events: none;
-    line-height: 1;
+    background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4A843'%3E%3Cpath d='M3 12h4a4 4 0 0 1 4 4v4H3v-8zM13 12h4a4 4 0 0 1 4 4v4h-8v-8z'/%3E%3C/svg%3E");
   }
   .endorsement-section-top {
     text-align: center; margin-bottom: 64px;
@@ -1432,7 +1586,16 @@
     transition: var(--transition);
   }
   .endorsement-chip:hover { border-color: var(--border); }
-  .endorsement-chip .chip-icon { color: var(--gold); }
+  .endorsement-chip .chip-icon { color: var(--gold); display: inline-flex; }
+
+  .urgency-label {
+    background: rgba(192,57,43,0.12) !important;
+    border-color: rgba(192,57,43,0.3) !important;
+    color: #E74C3C !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
   .endorsement-cta-box {
     margin-top: 36px;
     padding: 24px;
@@ -1490,7 +1653,7 @@
     background: var(--gold);
     border-radius: 50%; border: 2px solid var(--ink-2);
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem;
+    color: var(--ink);
   }
   .prt-divider { width: 1px; height: 80px; background: var(--border-2); flex-shrink: 0; }
   .prt-content { flex: 1; }
@@ -1528,7 +1691,7 @@
     position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
   }
-  .irs-icon { font-size: 2rem; flex-shrink: 0; }
+  .irs-icon { flex-shrink: 0; }
   .irs-text { flex: 1; }
   .irs-label {
     font-family: var(--font-mono); font-size: 0.65rem;
@@ -1680,6 +1843,9 @@
     margin-bottom: 4px;
   }
   .audience-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background: rgba(255,255,255,0.04);
     border: 1px solid var(--border-2);
     border-radius: 100px;
@@ -1724,7 +1890,8 @@
   }
   .status-card--success { border: 1px solid var(--border); box-shadow: var(--shadow-lg), var(--glow); }
   .status-card--cancel { border: 1px solid rgba(192,57,43,0.25); }
-  .status-icon { font-size: clamp(3rem, 10vw, 4rem); margin-bottom: 20px; }
+  .status-icon { margin: 0 auto 20px; }
+  .status-icon.ui-icon { width: clamp(56px, 12vw, 72px); height: clamp(56px, 12vw, 72px); }
   .status-title {
     font-family: var(--font-display);
     font-size: clamp(1.75rem, 6vw, 2.6rem);

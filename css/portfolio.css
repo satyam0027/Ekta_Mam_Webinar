@@ -361,8 +361,7 @@ a { color: inherit; }
 }
 
 .expertise-icon {
-  font-size: 1.6rem;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .expertise-card h3 {
