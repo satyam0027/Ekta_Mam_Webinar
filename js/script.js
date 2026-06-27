@@ -1,8 +1,7 @@
 ﻿/* ── Countdown Timer ── */
 function updateCountdown() {
-  const target = new Date();
-  target.setDate(target.getDate() + 12);
-  target.setHours(19, 0, 0, 0);
+  // Webinar date: 14 July 2026, 7:00 PM IST
+  const target = new Date('2026-07-14T19:00:00+05:30');
   const now = new Date();
   let diff = target - now;
   if (diff < 0) diff = 0;
@@ -39,17 +38,6 @@ const revealObs = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 reveals.forEach(el => revealObs.observe(el));
-
-const incomeObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.income-bar-fill').forEach(bar => {
-        bar.style.width = bar.style.width;
-      });
-    }
-  });
-}, { threshold: 0.3 });
-document.querySelectorAll('.income-cards').forEach(el => incomeObs.observe(el));
 
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {

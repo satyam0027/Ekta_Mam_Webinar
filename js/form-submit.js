@@ -45,7 +45,7 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   }
 
   if (!RAZORPAY_PAYMENT_LINK || RAZORPAY_PAYMENT_LINK.includes('PASTE_YOUR')) {
-    alert('Configure RAZORPAY_PAYMENT_LINK in js/config.js\n\nCreate a ₹299 link in Razorpay Dashboard → Payment Links');
+    alert('Configure RAZORPAY_PAYMENT_LINK in js/config.js\n\nCreate a ₹199 link in Razorpay Dashboard → Payment Links');
     return;
   }
 
